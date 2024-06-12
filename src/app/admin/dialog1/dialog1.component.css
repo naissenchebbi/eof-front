@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #003d89;
+}
+
+.dialogue {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+mat-radio-button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+mat-form-field textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.example-button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.example-button-row .confirm-btn {
+background-color: #003d89;
+color: #ffff;
+border-color: #003d89;
+
+}
+.example-button-row .cancel-btn {
+  border-color: #003d89;
+  background-color: #ffff;
+  color: #003d89;
+}
+.example-button-row button,
+.example-button-row a {
+  margin: 0 10px; 
+}

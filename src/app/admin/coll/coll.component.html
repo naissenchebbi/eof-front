@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>info collaborateurs</title>
+  <link rel="stylesheet" href="coll.component.css"> 
+</head>
+<body>
+<div class="table-container">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Aide Exceptionnelle</th>
+          <th>Allouche Aid</th>
+          <th>Frais Médicaux</th>
+          <th>Aide Social</th>
+          <th>Ancienneté</th>
+          <th>Autres</th>
+          <th>Clinique</th>
+          <th>Couffin Ramadan</th>
+          <th>Crédits</th>
+          <th>Date</th>
+          <th>Situation</th>
+          <th>Tel</th>
+          <th>De</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{ item.aide_execptionnelle }}</td>
+          <td>{{ item.allouche_aid }}</td>
+          <td>{{ item.frais_medicaux }}</td>
+          <td>{{ item.aide_social }}</td>
+          <td>{{ item.anciennete }}</td>
+          <td>{{ item.autres }}</td>
+          <td>{{ item.clinique }}</td>
+          <td>{{ item.couffin_ramadan }}</td>
+          <td>{{ item.credits }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.situation }}</td>
+          <td>{{ item.tel }}</td>
+          <td>{{ item.de }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

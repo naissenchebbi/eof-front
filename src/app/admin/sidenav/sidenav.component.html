@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sidenav</title>
+    <link
+      href="http://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="sidenav.component.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="topbar">
+        <div class="search-container">
+          <div>
+            <input
+              id="namanyay-search-box"
+              name="q"
+              size="40"
+              type="text"
+              placeholder="Rechercher"
+            />
+          </div>
+          <div id="namanyay-search-btn">
+            <i class="bx bxs-search"></i>
+          </div>
+        </div>
+
+        <div class="user">
+          <img
+            src="	https://icon-library.com/images/web-user-icon/web-user-icon-8.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="navigation">
+        <div>
+          <ul>
+            <li>
+              <div class="logo">
+                <img
+                  src="https://companieslogo.com/img/orig/LEO.DE.D-32976d80.png?t=1692025444"
+                  alt="Leoni logo Admin"
+                />
+              </div>
+            </li>
+            <div class="date">
+              <p>{{ myDate | date }}</p>
+            </div>
+            <li class="nav-item">
+              <a routerLink="/admin/dashboard">
+                <i class="bx bxs-dashboard"></i>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/liste collaborateur">
+                <i class="bx bxs-user"></i>
+                <span class="title">Collaborateurs</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/liste medecin">
+                <i class="bx bxs-user"></i>
+                <span class="title">Médecins</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/chat">
+                <i class="bx bx-chat"></i>
+                <span
+                  class="title"
+                  matBadge="8"
+                  matBadgePosition="before"
+                  matBadgeColor="accent"
+                  >Chat</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/calendrier">
+                <i class="bx bx-calendar"></i>
+                <span class="title">Calendrier</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/admin/bon">
+                <i class="bx bx-clipboard"></i>
+                <span class="title">Bons de consultation</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-item-btn">
+          <button class="btn-logout" (click)="logOut()">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,460 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #003d89;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.logo {
+  text-align: center;
+  padding: 2rem 0.5rem;
+  img {
+    width: 200px;
+  }
+}
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background: #003d89;
+  border-left: 10px solid #003d89;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  margin-bottom: 20px;
+  transform: translateY(-50%);
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: #fff;
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: #003d89;
+}
+
+.navigation ul li a .icon {
+  /*position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+   
+  */
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 20px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.logout-container {
+  max-width: 150px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  background: #fff;
+  text-decoration: none;
+  color: #003d89; /* Utilisez --blue au lieu de var(#003d89) */
+  border-radius: 6px;
+  display: flex; /* Ajoutez la mise en page flex */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+}
+
+.dark-mode-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex; /* Ajoutez la mise en page flex */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  pointer-events: none;
+}
+.btn-logout {
+  position: center;
+  background-color: #ffffff;
+  border: 1px solid #fff;
+  color: #003d89;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 10.79px;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1161b9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #e6f1ff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #e6f1ff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.date {
+  font-family: Poppins;
+  font-size: 18px;
+  color: #fff;
+  margin-right: 10px;
+  text-align: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* styles.css */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-mode {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.main-content {
+  margin-left: 320px;
+  padding: 70px;
+  width: calc(100% - 320px);
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  /* min-height: 100vh; */
+  background: #fff;
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid #999;
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.demo-inline-calendar-card {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.nav-item {
+  padding-left: 20px;
+}
+
+.nav-item {
+  padding-left: 20px;
+}
+
+.nav-item-btn {
+  margin-bottom: 30px;
+  padding-left: 0;
+  margin-right: 20px;
+}
+
+/* Search section  */
+#namanyay-search-btn {
+  background: #003d89;
+  color: white;
+  font: "trebuchet ms", trebuchet;
+  padding: 10px 20px;
+  border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  border: 0 none;
+  font-weight: bold;
+}
+
+#namanyay-search-box {
+  background: #eee;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
+  border: 0 none;
+  width: 160px;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.search-container {
+  display: flex;
+  padding-left: 55px;
+}
+
+.logout {
+  position: fixed;
+  bottom: 10px;
+}

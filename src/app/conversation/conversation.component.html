@@ -1,0 +1,90 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <section class="discussions">
+        <div class="discussion search">
+          <div class="searchbar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+        </div>
+
+        <div class="discussion" *ngFor="let chatroom of chatrooms">
+          <a href="/admin/chat/conversation/{{ chatroom.id }}" class="linker">
+            <div
+              class="photo"
+              style="
+                background-image: url(https://icon-library.com/images/web-user-icon/web-user-icon-8.jpg);
+              "
+            >
+              <div class="online"></div>
+            </div>
+            <div class="desc-contact">
+              <p class="name">{{ chatroom.collaboratorMatricule }}</p>
+              <p class="message">
+                Matrricule Num : {{ chatroom.users.matricule }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="chat">
+        <div class="header-chat">
+          <i class="icon fa fa-user-o" aria-hidden="true"></i>
+          <p class="name">
+            {{ chatRoomData.collaborator.nom }} ({{
+              chatRoomData.chatRoom.collaboratorMatricule
+            }})
+          </p>
+          <i
+            class="icon clickable fa fa-ellipsis-h right"
+            aria-hidden="true"
+          ></i>
+        </div>
+        <div
+          class="messages-chat"
+          id="eoc
+        "
+        >
+          <ng-container *ngFor="let message of conversation">
+            <!-- Other messages -->
+            <div *ngIf="!isMyMessage(message)" class="message-container">
+              <div class="message">
+                <p class="text">{{ message.message }}</p>
+                <p class="time">{{ message.sentAt | date : "shortTime" }}</p>
+              </div>
+            </div>
+            <!-- My messages -->
+            <div *ngIf="isMyMessage(message)" class="message-container">
+              <div class="message text-only">
+                <div class="response">
+                  <p class="text">{{ message.message }}</p>
+                  <p class="response-time time">
+                    {{ message.sentAt | date : "shortTime" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <form class="footer-chat">
+          <i
+            class="icon fa fa-smile-o clickable"
+            style="font-size: 25pt"
+            aria-hidden="true"
+          ></i>
+          <textarea
+            (keyup)="getVal($event)"
+            type="text"
+            class="write-message"
+            placeholder="envoyer un message"
+          ></textarea>
+
+          <button class="send-message" (click)="sendMessage()" type="reset">
+            Envoyer
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</body>

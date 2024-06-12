@@ -1,0 +1,44 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <section class="chat">
+                <div class="header-chat">
+                    <i class="icon fa fa-user-o" aria-hidden="true"></i>
+                    <p class="name">Admins ChatRoom</p>
+                    <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+                </div>
+                <div class="messages-chat" id="eoc">
+                    <ng-container *ngFor="let message of conversation">
+                        <!-- Other messages -->
+                        <div *ngIf="!isMyMessage(message)" class="message-container">
+                            <div class="message">
+                                <p class="text">{{ message.message }}</p>
+                                <p class="time">{{ message.sentAt | date : "shortTime" }}</p>
+                            </div>
+                        </div>
+                        <!-- My messages -->
+                        <div *ngIf="isMyMessage(message)" class="message-container">
+                            <div class="message text-only">
+                                <div class="response">
+                                    <p class="text">{{ message.message }}</p>
+                                    <p class="response-time time">
+                                        {{ message.sentAt | date : "shortTime" }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <form class="footer-chat">
+                    <i class="icon fa fa-smile-o clickable" style="font-size: 25pt" aria-hidden="true"></i>
+                    <textarea (keyup)="getVal($event)" type="text" class="write-message"
+                        placeholder="Type your message here"></textarea>
+
+                    <button class="send-message" (click)="sendMessage()" type="reset">
+                        Send
+                    </button>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>

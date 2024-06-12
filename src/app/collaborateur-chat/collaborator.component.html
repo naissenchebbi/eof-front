@@ -1,0 +1,55 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <section class="chat">
+        <div class="header-chat">
+          <i class="icon fa fa-user-o" aria-hidden="true"></i>
+          <p class="name">Service Social</p>
+          <i
+            class="icon clickable fa fa-ellipsis-h right"
+            aria-hidden="true"
+          ></i>
+        </div>
+        <div class="messages-chat" id="eoc">
+          <ng-container *ngFor="let message of conversation">
+            <!--  message service social -->
+            <div *ngIf="!isMyMessage(message)" class="message-container">
+              <div class="message">
+                <p class="text">{{ message.message }}</p>
+                <p class="time">{{ message.sentAt | date : "shortTime" }}</p>
+              </div>
+            </div>
+            <!-- Mon message -->
+            <div *ngIf="isMyMessage(message)" class="message-container">
+              <div class="message text-only">
+                <div class="response">
+                  <p class="text">{{ message.message }}</p>
+                  <p class="response-time time">
+                    {{ message.sentAt | date : "shortTime" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <form class="footer-chat">
+          <i
+            class="icon fa fa-smile-o clickable"
+            style="font-size: 25pt"
+            aria-hidden="true"
+          ></i>
+          <textarea
+            (keyup)="getVal($event)"
+            type="text"
+            class="write-message"
+            placeholder="envoyez un message"
+          ></textarea>
+
+          <button class="send-message" (click)="sendMessage()" type="reset">
+            Envoyer
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</body>

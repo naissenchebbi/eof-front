@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>liste collaborateurs</title>
+
+    <link rel="stylesheet" href="listecoll.component.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="ajouterCollaborateur()"
+      >
+        Ajouter un collaborateur
+      </button>
+    </div>
+    <mat-form-field>
+      <mat-label>Recherche</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. Naissen"
+        #input
+      />
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="matricule">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>matricule</th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            (click)="navigateToInfo(row.matricule)"
+          >
+            {{ row.matricule }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+          <td mat-cell *matCellDef="let row">
+            <a [routerLink]="['/infocoll', row.nom]">{{ row.nom }}</a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tel">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>tel</th>
+          <td mat-cell *matCellDef="let row">(+216 ){{ row.tel }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+          <td mat-cell *matCellDef="let row">
+            <button
+              mat-icon-button
+              (click)="modifierCollaborateur(row)"
+              class="edit-icon"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button
+              mat-icon-button
+              class="delete-icon"
+              (click)="supprimerCollaborateur(row.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr> -->
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </body>
+</html>

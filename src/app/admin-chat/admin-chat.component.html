@@ -1,0 +1,58 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <section class="discussions">
+        <div class="discussion" *ngFor="let chatroom of chatrooms">
+          <a href="/admin/chat/conversation/{{ chatroom.id }}" class="linker">
+            <div
+              class="photo"
+              style="
+                background-image: url(https://icon-library.com/images/web-user-icon/web-user-icon-8.jpg);
+              "
+            >
+              <div class="online"></div>
+            </div>
+            <div class="desc-contact">
+              <p class="name">{{ chatroom.collaboratorMatricule }}</p>
+              <p class="message">
+                Matrricule Num : {{ chatroom.users.matricule }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section
+        class="chat"
+        style="
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          padding-top: 100px;
+        "
+      >
+        <div class="flx">
+          <p>Entrez le matricule du collaborateur</p>
+          <Input
+            type="text"
+            class="inputSend"
+            placeholder="Enter the Matricule"
+            (keyup)="setMatricule($event)"
+          />
+
+          <textarea
+            type="text"
+            class="inputSend"
+            placeholder="Fist Message"
+            (keyup)="setMess($event)"
+          ></textarea>
+
+          <button (click)="sendFirst()" class="sendBtn">
+            Entrez premier message 
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>

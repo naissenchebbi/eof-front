@@ -1,0 +1,52 @@
+<h1>Ajouter un collaborateur</h1>
+
+<div class="dialogue">
+  <mat-form-field>
+    <mat-label>matricule</mat-label>
+    <input
+      matInput
+      type="number"
+      class="example-left-align"
+      (keyup)="setMatricule($event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>nom</mat-label>
+    <input
+      matInput
+      type="string"
+      class="example-left-align"
+      (keyup)="setNom($event)"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>tel</mat-label>
+    <input
+      matInput
+      type="number"
+      class="example-left-align"
+      (keyup)="setPhone($event)"
+    />
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button
+      class="cancel-btn"
+      mat-raised-button
+      color="warn"
+      (click)="onNoClick()"
+    >
+      Annuler
+    </button>
+    <button
+      class="confirm-btn"
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+    >
+      Ajouter
+    </button>
+  </div>
+</div>

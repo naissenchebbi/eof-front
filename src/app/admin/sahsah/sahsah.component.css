@@ -1,0 +1,17 @@
+.example-card {
+  max-width: 1000px;
+  margin-bottom: 8px;
+}
+
+.ajouter {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+  background-color: #003d89;
+}
+
+.btn-container {
+  margin: 12px 0;
+}

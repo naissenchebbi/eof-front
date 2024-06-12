@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+  
+    <link rel="stylesheet" href="chat.component.css">
+</head>
+<body>
+
+  <mat-card class="chat-container">
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message">
+        {{ message }}
+      </div>
+    </div>
+    <div class="input-container">
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newMessage" placeholder="Type a message">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+    </div>
+  </mat-card>
+  
+  
+  
+  </body>
+  </html>

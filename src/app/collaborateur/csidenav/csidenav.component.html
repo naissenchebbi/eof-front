@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csidenav</title>
+    <link
+      href="http://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="csidenav.component.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="topbar">
+        <div class="search-container">
+          <div>
+            <input
+              id="namanyay-search-box"
+              name="q"
+              size="40"
+              type="text"
+              placeholder="Rechercher"
+            />
+          </div>
+          <div id="namanyay-search-btn">
+            <i class="bx bxs-search"></i>
+          </div>
+        </div>
+
+        <div class="user">
+          <img
+            src="	https://icon-library.com/images/web-user-icon/web-user-icon-8.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="navigation">
+        <div>
+          <ul>
+            <li>
+              <div class="logo">
+                <img
+                  src="https://companieslogo.com/img/orig/LEO.DE.D-32976d80.png?t=1692025444"
+                  alt="Leoni logo Admin"
+                />
+              </div>
+            </li>
+            <div class="date">
+              <p>{{ myDate | date }}</p>
+            </div>
+            <li class="nav-item">
+              <a href="/collaborateur/acceuil">
+                <i class="bx bxs-dashboard"></i>
+                <span class="title">Acceuil</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="collaborateur/chat">
+                <i class="bx bx-chat"></i>
+                <span
+                  class="title"
+                  matBadge="8"
+                  matBadgePosition="before"
+                  matBadgeColor="accent"
+                  >Chat</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="collaborateur/calendrier">
+                <i class="bx bx-calendar"></i>
+                <span class="title">Calendrier</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-item-btn logout">
+          <button class="btn-logout" (click)="logout()">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
+</html>

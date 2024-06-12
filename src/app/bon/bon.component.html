@@ -1,0 +1,52 @@
+<div class="container">
+  <div *ngFor="let bon of allBons">
+    <mat-card class="info-card">
+      <p class="id">{{ bon.medecin.id }}</p>
+      <div class="card-content">
+        <img
+          [src]="
+            bon.photo ||
+            'https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png'
+          "
+          alt="Photo"
+          class="photo"
+        />
+        <div class="info">
+          <h2>{{ bon.nom }}</h2>
+          <p><strong>Matricule:</strong> {{ bon.matricule }}</p>
+          <p><strong>Médecin:</strong> {{ bon.medecin.nom }}</p>
+          <ng-container *ngIf="role === 'ADMIN'; else medecinDate">
+            <!-- Display regular data here -->
+            <div *ngIf="bon.date; else nullDate">
+              <p><strong>Date de consultation:</strong> {{ bon.date }}</p>
+            </div>
+
+            <ng-template #nullDate>
+              <p><strong>Date de consultation:</strong> Pas encore consulté</p>
+            </ng-template>
+          </ng-container>
+
+          <ng-template #medecinDate>
+            <!-- Display date in input field for medecin -->
+            <label>Date de consultation</label>
+            <input
+              matInput
+              type="date"
+              (change)="updateDateFunc($event, bon.id)"
+              name="date"
+              value="{{ bon.date }}"
+              required
+            />
+          </ng-template>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<a *ngIf="role === 'ADMIN'; else nullRole" href="/admin/ajoutbon" class="addBon"
+  >Ajouter un Bon</a
+>
+<ng-template #nullRole>
+  <a href="#" class="addBon">Ajouter un Bon</a>
+</ng-template>

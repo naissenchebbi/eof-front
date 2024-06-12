@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS for styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .btn-custom {
+        background-color: #003d89;
+        color: white;
+      }
+      .btn-custom:hover {
+        background-color: #002a5e;
+      }
+    </style>
+
+    <title>Bon de consultation</title>
+  </head>
+  <body>
+    <!-- Main container for centering content -->
+    <div
+      class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 m-5">
+            <!-- Form for adding a consultation note -->
+            <form class="row shadow-lg p-3 needs-validation" novalidate>
+              <div class="m-2">
+                <h1>Ajouter un bon de consultation</h1>
+              </div>
+
+              <!-- Input fields for name and matricule -->
+              <div class="col-md-12 m-2">
+                <div class="row">
+                  <!-- Name input -->
+                  <div class="col">
+                    <label for="Nom" class="form-label">
+                      Nom <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nom"
+                      id="Nom"
+                      required
+                      (keyup)="setNom($event)"
+                    />
+                  </div>
+                  <!-- Matricule input -->
+                  <div class="col">
+                    <label for="Matricule" class="form-label">
+                      Matricule <span class="text-danger">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Matricule"
+                      id="Matricule"
+                      (keyup)="setMatricule($event)"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input field for médecin -->
+              <div class="col-md-12 m-2">
+                <label for="médecin" class="form-label">
+                  Médecin <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Médecin"
+                  id="médecin"
+                  (keyup)="setMedecin($event)"
+                  required
+                />
+              </div>
+
+              <!-- Input field for photo -->
+              <div class="col-md-12 m-2">
+                <label for="photo" class="form-label">
+                  Photo <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="photo"
+                  accept="image/*"
+                  (change)="setFile($event)"
+                  required
+                />
+              </div>
+
+              <!-- Input field for date -->
+              <!-- <div class="col-md-12 m-2">
+                <label for="date" class="form-label">
+                  Date <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  required
+                  (change)="setDate($event)"
+                />
+              </div> -->
+
+              <!-- Checkbox for confirming information -->
+              <div class="col-md-12 m-2">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="checkbox"
+                    required
+                  />
+                  <label for="checkbox" class="form-check-label">
+                    Confirmer les informations
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submit button with custom color -->
+              <div class="col-md-12 m-2">
+                <button
+                  id="submitBtn"
+                  type="button"
+                  class="btn btn-custom"
+                  (click)="ajoutBon()"
+                >
+                  Confirmer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for form validation -->
+    <!-- <script>
+      // Add Bootstrap's validation styles to the form
+      (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission if invalid
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+            },
+            false
+          )
+        })
+      })()
+    </script>   -->
+  </body>
+</html>

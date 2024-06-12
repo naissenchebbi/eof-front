@@ -1,0 +1,45 @@
+.custom-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.custom-table th.mat-header-cell,
+.custom-table td.mat-cell {
+  padding: 8px;
+}
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.main-content {
+  margin-left: 320px;
+  padding: 70px;
+  width: calc(100% - 320px);
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+  background-color: #003d89;
+  color: white;
+}
+
+.btn-container {
+  margin: 12px 0px;
+}
+
+.edit-icon {
+  color: #003d89 ;
+}
+
+.delete-icon {
+  color: #ff0000 ; 
+}
